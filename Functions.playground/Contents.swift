@@ -46,3 +46,20 @@ getFullName()
 getFullName(firstName: "Baz")
 getFullName(lastName: "Foo")
 getFullName(firstName: "Baz", lastName: "Qux")
+
+typealias longComplicatedExpression = (Int) -> Bool
+
+func hasAnyMatches(list: [Int], condition: longComplicatedExpression) -> Bool {
+    for item in list {
+        if condition(item) {
+            return true
+        }
+    }
+    return false
+}
+
+func betweenOneAndTen(num: Int) -> Bool {
+    return num >= 1 && num <= 10
+}
+
+hasAnyMatches(list: [0, 11, 10], condition: betweenOneAndTen)
